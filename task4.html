@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<input type="checkbox">
+	<input type="checkbox">
+	<input type="checkbox">
+	<input type="checkbox">
+	<input type="checkbox">
+	<input type="checkbox">
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script>
+		let count = 0;
+
+		const boxes = $('[type="checkbox"]');
+		boxes.on('change', (event) => {
+			console.log('event.target.checked', event.target.checked);
+
+			if (event.target.checked) {
+				count += 1;
+			} else {
+				count -= 1;
+			}
+
+			if (count >= 3) {
+				boxes.each((i, box) => {
+					$(box).attr('disabled', true);
+				})
+			}
+		});
+
+	</script>
+</body>
+
+</html>
